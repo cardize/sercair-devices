@@ -27,16 +27,18 @@ const App = (props) => {
   const popUpDevice = useCallback(() => {
     if (isPopup === true) {
       return (
-        <div className="popup-container" onClick={() => setIsPopup(false)}>
-          <img
-            className="popup-image"
-            src={props.localDevice.imageUrl}
-            alt=""
-          />
-          <div className="popup-name-container">
-            <h6 className="popup-name">Sercair</h6>
-            <p className="popup-name">{props.localDevice.deviceName}</p>
-            <p className="popup-name">{props.localDevice.desc}</p>
+        <div className="popup-back" onClick={() => setIsPopup(false)}>
+          <div className="popup-container">
+            <img
+              className="popup-image"
+              src={props.localDevice.imageUrl}
+              alt=""
+            />
+            <div className="popup-name-container">
+              <h6 className="popup-name">Sercair</h6>
+              <p className="popup-name">{props.localDevice.deviceName}</p>
+              <p className="popup-name">{props.localDevice.desc}</p>
+            </div>
           </div>
         </div>
       )
@@ -47,12 +49,15 @@ const App = (props) => {
     if (localStorage.getItem('localDevice') && isOffer === true) {
       const localDevice = JSON.parse(localStorage.getItem('localDevice'))
       return (
-        <div className="popup-container" onClick={() => setIsOffer(false)}>
-          <div className="popup-name-container">
-            <h6 className="popup-name">Sercair</h6>
-            <p className="popup-name">{localDevice.deviceName}</p>
-            <p className="popup-name">{localDevice.desc}</p>
-            <h1 className="popup-offer">%50 İNDİRİM</h1>
+        <div className="popup-back" onClick={() => setIsPopup(false)}>
+          <div className="popup-container" onClick={() => setIsOffer(false)}>
+            <img className="popup-image" src={localDevice.imageUrl} alt="" />
+            <div className="popup-name-container">
+              <h6 className="popup-name">Sercair</h6>
+              <p className="popup-name">{localDevice.deviceName}</p>
+              <p className="popup-name">{localDevice.desc}</p>
+              <h1 className="popup-offer">%50 İNDİRİM</h1>
+            </div>
           </div>
         </div>
       )
