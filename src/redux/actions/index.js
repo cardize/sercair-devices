@@ -1,4 +1,4 @@
-const DEVICE_OFFER = 'DEVICE_OFFER'
+export const DEVICE_OFFER = 'DEVICE_OFFER'
 
 export const deviceOffer = (device) => {
   return {

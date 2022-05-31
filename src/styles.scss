@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+.App {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+h6 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.devices-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  .device-container {
+    display: grid;
+    margin: 2rem;
+    max-width: 300px;
+    max-height: 400px;
+    justify-items: center;
+    align-items: center;
+    background-color: rgb(226, 226, 226);
+    border-radius: 0.5rem;
+    &:hover {
+      background-color: rgb(239, 239, 239);
+      transform: scale(1.1);
+      transition: transform 200ms;
+    }
+    .device-image {
+      height: 70%;
+      width: 70%;
+    }
+    .device-name-container {
+      height: 100%;
+      width: 100%;
+      .device-name {
+        width: 100%;
+        margin: 0.5rem;
+        margin-left: 2.5rem;
+      }
+    }
+    .details-button {
+      margin: 2rem;
+      width: 12rem;
+      height: 2.5rem;
+      font-size: 1.1rem;
+      background-color: rgb(111, 216, 216);
+      border: none;
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      &:hover {
+        color: rgb(111, 216, 216);
+        background-color: rgb(255, 255, 255);
+      }
+    }
+  }
+}
