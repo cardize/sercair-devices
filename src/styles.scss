@@ -20,10 +20,10 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 2rem;
+  margin-top: 4rem;
   .device-container {
     display: grid;
-    margin: 2rem;
+    margin: 1rem;
     max-width: 300px;
     max-height: 400px;
     justify-items: center;
@@ -69,21 +69,20 @@ p {
 .popup-container {
   display: grid;
   margin: 2rem;
-  max-width: 300px;
-  max-height: 400px;
+  width: 750px;
+  height: 800px;
   justify-items: center;
   align-items: center;
   background-color: rgb(232, 232, 232);
   border-radius: 1rem;
   .popup-image {
-    height: 70%;
-    width: 70%;
+    height: 100%;
+    width: 100%;
   }
   .popup-name-container {
     height: 100%;
     width: 100%;
     .popup-name {
-      width: 100%;
       margin: 0.5rem;
       margin-left: 2.5rem;
     }

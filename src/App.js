@@ -36,7 +36,7 @@ const App = (props) => {
           <div className="popup-name-container">
             <h6 className="popup-name">Sercair</h6>
             <p className="popup-name">{props.localDevice.deviceName}</p>
-            <p>{props.localDevice.desc}</p>
+            <p className="popup-name">{props.localDevice.desc}</p>
           </div>
         </div>
       )
@@ -51,8 +51,8 @@ const App = (props) => {
           <div className="popup-name-container">
             <h6 className="popup-name">Sercair</h6>
             <p className="popup-name">{localDevice.deviceName}</p>
-            <p>{localDevice.desc}</p>
-            <h1>%50 İNDİRİM</h1>
+            <p className="popup-name">{localDevice.desc}</p>
+            <h1 className="popup-offer">%50 İNDİRİM</h1>
           </div>
         </div>
       )
