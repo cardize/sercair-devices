@@ -10,6 +10,7 @@ const App = (props) => {
   const [isLoading, setIsLoading] = useState(true)
   const [devices, setDevices] = useState([])
   const [isOffer, setIsOffer] = useState(true)
+  const [isPopup, setIsPopup] = useState(false)
 
   useEffect(() => {
     axios
@@ -24,27 +25,45 @@ const App = (props) => {
   }
 
   const popUpDevice = useCallback(() => {
-    return <div>{props.localDevice.deviceName}</div>
-  }, [props.localDevice])
+    if (isPopup === true) {
+      return (
+        <div className="popup-container" onClick={() => setIsPopup(false)}>
+          <img
+            className="popup-image"
+            src={props.localDevice.imageUrl}
+            alt=""
+          />
+          <div className="popup-name-container">
+            <h6 className="popup-name">Sercair</h6>
+            <p className="popup-name">{props.localDevice.deviceName}</p>
+            <p>{props.localDevice.desc}</p>
+          </div>
+        </div>
+      )
+    }
+  }, [isPopup])
 
   const popUpOffer = useCallback(() => {
     if (localStorage.getItem('localDevice') && isOffer === true) {
       const localDevice = JSON.parse(localStorage.getItem('localDevice'))
       return (
-        <div>
-          <div>{localDevice.deviceName}</div>
-          <div>{localDevice.desc}</div>
-          <h1>%50 BABYY</h1>
+        <div className="popup-container" onClick={() => setIsOffer(false)}>
+          <div className="popup-name-container">
+            <h6 className="popup-name">Sercair</h6>
+            <p className="popup-name">{localDevice.deviceName}</p>
+            <p>{localDevice.desc}</p>
+            <h1>%50 İNDİRİM</h1>
+          </div>
         </div>
       )
     }
   }, [isOffer])
 
   return (
-    <div className="App">
-      {popUpDevice()}
-      {popUpOffer()}
+    <div className="App" onClick={() => setIsOffer(false)}>
       <div className="main-container">
+        {popUpDevice()}
+        {popUpOffer()}
         <div className="devices-container">
           {isLoading ? (
             <div className="loading-container">
@@ -65,7 +84,8 @@ const App = (props) => {
                     onClick={() => (
                       props.deviceOffer(device),
                       handleClick(device),
-                      setIsOffer(false)
+                      setIsOffer(false),
+                      setIsPopup(true)
                     )}
                   >
                     DETAY
